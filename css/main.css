@@ -1,0 +1,71 @@
+/* Helpers */
+
+.hidden{
+    display: none;
+}
+
+.flex{
+    display: flex;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+/* Gallery components */
+
+.gallery{
+    width: 80%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.card{
+    height: 12.5rem;
+    width: 12.5rem;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0.3125rem;
+}
+
+@media (max-width: 470px){
+    .card{
+        height: 6.25rem;
+        width: 6.25rem;
+    }
+}
+
+img{
+    width: 100%;
+    z-index: -1;
+}
+
+.card:hover{
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Editor components */
+
+.meme-editor{
+    width: 100%;
+    height: 700px;
+    /* border: 2px black solid; */
+}
+
+.canvas-container{
+    width: 50%;
+    height: 100%;
+    /* border: 2px red solid; */
+}
+
+canvas{
+    display: block;
+    height: 100%;
+    width: 100%;
+    /* border: 2px blue solid; */
+}
