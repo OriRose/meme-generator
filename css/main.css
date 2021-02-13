@@ -1,3 +1,15 @@
+/* Fonts */
+
+@font-face {
+    font-family: poppins;
+    src: url(../fonts/Poppins/Poppins-Medium.ttf);
+}
+
+@font-face {
+    font-family: hachi-maru-pop;
+    src: url(../fonts/Hachi\ Maru\ Pop/HachiMaruPop-Regular.ttf);
+}
+
 /* Helpers */
 
 .hidden{
@@ -8,11 +20,53 @@
     display: flex;
 }
 
+.clean-list{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+/* General components */
+
+body{
+    background-color: #22252C;
+    font-size: 22px;
+    font-family: poppins;
+}
+
 *{
     box-sizing: border-box;
 }
 
+.header{
+    background-image: linear-gradient(#5970C1,teal);
+    color: white;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3px;
+    height: 13vh;
+    padding: 0 10%;
+}
+
+.logo{
+    font-family: hachi-maru-pop;
+    font-size: 36px;
+}
+
+.nav-bar>*:not(:last-child){
+    margin-inline-end: 100px;
+}
+
 /* Gallery components */
+
+.gallery-container{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(211, 211, 211, 0.2);
+    border-radius: 25px;
+}
 
 .gallery{
     width: 80%;
@@ -39,14 +93,14 @@
     }
 }
 
-img{
+.meme-img{
     width: 100%;
-    z-index: -1;
+    border-radius: 25px;
 }
 
-.card:hover{
+.meme-img:hover{
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.3);
+    opacity: 0.7;
 }
 
 /* Editor components */
@@ -54,18 +108,123 @@ img{
 .meme-editor{
     width: 100%;
     height: 700px;
-    /* border: 2px black solid; */
+    margin-top: 5%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.editor-container{
+    height: 100%;
+    width: 30%;
+    background-color: rgba(211, 211, 211, 0.2);
+    margin-right: 10vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .canvas-container{
     width: 50%;
     height: 100%;
-    /* border: 2px red solid; */
+    background-size: cover;
+    margin-left: 10vh;
 }
 
 canvas{
     display: block;
     height: 100%;
     width: 100%;
-    /* border: 2px blue solid; */
+    border: 2px darkgray solid;
+}
+
+button{
+    font-family: poppins;
+    width: 5vh;
+    height: 5vh;
+    background-color: white;
+    border-radius: 15px;
+    border: none;
+}
+
+.logo,li,button:hover{
+    cursor: pointer;
+}
+
+.line-controls{
+    width: 85%;
+    justify-content: space-between;
+}
+
+.text-controls{
+    width: 85%;
+    height: 50%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.style-controls{
+    width: 85%;
+    height: 50%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.controlbox{
+    flex-direction: column;
+    margin-left: auto;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    height: 30%;
+    background-color: rgb(47, 158, 228);
+    margin: 0 auto;
+    border-radius: 25px;
+}
+
+.control-btn{
+    background-color: rgb(14, 133, 245);
+    color: white;
+}
+
+.add-btn{
+    background-color: limegreen;
+    color: white;
+}
+
+.delete-btn{
+    background-color: tomato;
+    color: white;
+}
+
+.font-select{
+    width: 26vh;
+    height: 5vh;
+    border-radius: 10px;
+}
+
+.wide-btn{
+    width: 45%;
+    height: 5vh;
+    margin-top: 2px;
+    background-color: lightseagreen;
+    color: white;
+    border: none;
+}
+
+form{
+    width: 45%;
+    margin-bottom: 5px;
+}
+
+.share-btn{
+    width: 100%;
+    background-color: rgb(238, 20, 238)
+}
+
+.line-text{
+    margin-top: 5px;
+    width: 80%;
+    border-radius: 25px;
+    height: 5vh;
+    text-align: center;
 }

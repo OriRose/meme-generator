@@ -34,7 +34,22 @@ function init() {
 function renderImages() {
     var strHTML = ''
     gImages.forEach((image) => {
-        strHTML += `<div class="flex card" onclick="initEditor('${image.url}')"><img src="${image.url}"></div>`
+        strHTML += `<div class="flex card" onclick="initEditor('${image.url}')"><img class="meme-img" src="${image.url}"></div>`
     })
     document.querySelector('.gallery').innerHTML = strHTML
+}
+
+function showGallery(){
+    document.querySelector('.gallery-container').classList.remove('hidden')
+    document.querySelector('.meme-editor').classList.add('hidden')
+    document.querySelector('.about').classList.add('hidden')
+    document.querySelector('.meme-editor').classList.remove('flex')
+}
+
+function showAbout(){
+    document.querySelector('.meme-editor').classList.add('hidden')
+    document.querySelector('.meme-editor').classList.remove('flex')
+    document.querySelector('.gallery-container').classList.add('hidden')
+    document.querySelector('.gallery-container').classList.remove('flex')
+    document.querySelector('.about').classList.remove('hidden')
 }

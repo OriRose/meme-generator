@@ -6,35 +6,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <title>Meme Generator</title>
 </head>
 
 <body onload="init()">
     <div class="header">
-        <div class="logo">Logo</div>
-        <ul class="nav-bar">
-            <li>Gallery</li>
-            <li>My memes</li>
-            <li>About</li>
+        <div onclick="showGallery()" class="logo">Memegen</div>
+        <ul class="nav-bar clean-list flex">
+            <li onclick="showGallery()">Gallery</li>
+            <!-- <li>My memes</li> -->
+            <li onclick="showAbout()">About</li>
         </ul>
     </div>
 
 
-    <div class="meme-editor">
+    <div class="meme-editor hidden">
         <div class="canvas-container">
             <canvas class="my-canvas"></canvas>
         </div>
-        <!-- <div class="button-container">
-            <input type="text">
-            <button></button> -->
-        <!-- </div> -->
+        <div class="editor-container flex">
+            <input class="line-text" type="text" id="line-text" name="line-text" onkeyup="updateText(this.value)">
+            <div class="line-controls flex">
+                <button class="control-btn" onclick="switchLines()"><i class="fa fa-long-arrow-up" aria-hidden="true"></i><i class="fa fa-long-arrow-down" aria-hidden="true"></i></button>
+                <button class="control-btn" onclick="moveLineUp()" onmousedown="startMoveUpInterval()" onmouseup="endMoveUpInterval()"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
+                <button class="control-btn" onclick="moveLineDown()" onmousedown="startMoveDownInterval()" onmouseup="endMoveDownInterval()"><i class="fa fa-arrow-down" aria-hidden="true"></i></button>
+                <button class="add-btn" onclick="addLine()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                <button class="delete-btn" onclick="deleteLine()"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </div>
+            <div class="flex controlbox">
+                <div class="text-controls flex">
+                    <button onclick="increaseSize()">A<sup>+</sup></button>
+                    <button onclick="decreaseSize()">A<sup>-</sup></button>
+                    <button onclick="alignLeft()"><i class="fa fa-align-left" aria-hidden="true"></i></button>
+                    <button onclick="alignCenter()"><i class="fa fa-align-center" aria-hidden="true"></i></button>
+                    <button onclick="alignRight()"><i class="fa fa-align-right" aria-hidden="true"></i></button>
+                </div>
+                <div class="style-controls flex">
+                    <select class="font-select" name="font" id="font" onchange="setFont(this.value)">
+                        
+                    </select>
+                    <button onclick="clickFillColorInput()"><i class="fa fa-eyedropper" aria-hidden="true"></i></button>
+                    <button onclick="clickOutlineColorInput()"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <input type="color" id="fill-color" class="hidden" onchange="setFillColor()">
+                    <input type="color" id="outline-color" class="hidden" onchange="setOutlineColor()">
+                </div>
+            </div>
+            <button class="wide-btn" onclick="clickDownloadLink()"><i class="fa fa-download" aria-hidden="true"></i> Download</button>
+            <form action="" method="POST" enctype="multipart/form-data" onsubmit="shareMeme(this, event)">
+                <input name="img" id="imgData" type="hidden" />
+                <button class="wide-btn share-btn" type="submit"><i class="fa fa-share-alt" aria-hidden="true"></i> Share on Facebook</button>
+            </form>
+            <a class="hidden download-link" href="#" onclick="downloadMeme(this)" download=""></a>
+        </div>
     </div>
 
-    <div class="gallery flex">
-
+    <div class="gallery-container">
+        <div class="gallery flex">
+    
+        </div>
     </div>
 
-    <img class="my-img" src="" alt="">
+    <div class="about hidden">
+        <img src="img/about.jpg" alt="">
+    </div>
+
+
+    <img class="my-img hidden" src="" alt="">
 
 
     <script src="js/gallery-service.js"></script>
