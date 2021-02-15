@@ -34,7 +34,7 @@ function init() {
 function renderImages() {
     var strHTML = ''
     gImages.forEach((image) => {
-        strHTML += `<div class="flex card" onclick="initEditor('${image.url}')"><img class="meme-img" src="${image.url}"></div>`
+        strHTML += `<div class="card flex" onclick="initEditor('${image.url}')"><img class="meme-img" src="${image.url}"></div>`
     })
     document.querySelector('.gallery').innerHTML = strHTML
 }
@@ -44,6 +44,7 @@ function showGallery(){
     document.querySelector('.meme-editor').classList.add('hidden')
     document.querySelector('.about').classList.add('hidden')
     document.querySelector('.meme-editor').classList.remove('flex')
+    document.body.classList.remove('menu-open');
 }
 
 function showAbout(){
@@ -52,4 +53,10 @@ function showAbout(){
     document.querySelector('.gallery-container').classList.add('hidden')
     document.querySelector('.gallery-container').classList.remove('flex')
     document.querySelector('.about').classList.remove('hidden')
+    document.body.classList.remove('menu-open');
+}
+
+function toggleMenu() {
+    document.body.classList.toggle('menu-open');
+    document.querySelector('.menu-btn').classList.toggle('menu-open')
 }

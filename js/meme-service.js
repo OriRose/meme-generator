@@ -21,8 +21,21 @@ function initEditor(imageUrl) {
 
     gImg = document.querySelector('.my-img')
     gImg.src = imageUrl
-    var height = gImg.height * document.querySelector('.canvas-container').offsetWidth / gImg.width
-    document.querySelector('.meme-editor').style.height = height + 'px'
+    // var height = gImg.height * document.querySelector('.canvas-container').offsetWidth / gImg.width
+    // document.querySelector('.meme-editor').style.height = height + 'px'
+    console.log(gImg.height)
+    console.log(gImg.width)
+    if (gImg.height === gImg.width) {
+        gElCanvas.style.height = '500 px'
+        gElCanvas.style.width = '500 px'
+    } else {
+        var height = gImg.height * 500 / gImg.width
+        // var width = gImg.height * height / gImg.width
+        gElCanvas.height = height
+        gElCanvas.width = 500
+        console.log(gElCanvas.height)
+        console.log(gElCanvas.width)
+    }
     initLines()
     drawMeme(true)
 }

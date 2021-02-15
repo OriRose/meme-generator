@@ -59,6 +59,10 @@ body{
     margin-inline-end: 100px;
 }
 
+.menu-btn{
+    display: none;
+}
+
 /* Gallery components */
 
 .gallery-container{
@@ -107,33 +111,26 @@ body{
 
 .meme-editor{
     width: 100%;
-    height: 700px;
+    height: 500px;
     margin-top: 5%;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: space-around;
 }
 
 .editor-container{
     height: 100%;
     width: 30%;
     background-color: rgba(211, 211, 211, 0.2);
-    margin-right: 10vh;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-}
-
-.canvas-container{
-    width: 50%;
-    height: 100%;
-    background-size: cover;
-    margin-left: 10vh;
+    border-radius: 25px;
 }
 
 canvas{
     display: block;
-    height: 100%;
-    width: 100%;
+    /* height: 100%;
+    width: 100%; */
     border: 2px darkgray solid;
 }
 
@@ -227,4 +224,116 @@ form{
     border-radius: 25px;
     height: 5vh;
     text-align: center;
+}
+
+@media (max-width: 1120px){
+    .style-controls{
+        flex-wrap: wrap;
+        
+    }
+    select{
+        margin-bottom: 2px;
+    }
+    .controlbox{
+        height: 40%;
+    }
+}
+
+@media (max-width: 850px){
+    .text-controls{
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 700px){
+    .meme-editor{
+        flex-direction: column;
+        height: 100%;
+    }
+    .editor-container{
+        margin-top: 5px;
+        flex-direction: row;
+        width: 100%;
+        height: 300px;
+        flex-wrap: wrap ;
+    }
+    .controlbox{
+        height: 40%;
+    }
+    form{
+        margin-bottom: 0px;
+        width: 40%;
+        margin-right: 5px;
+        height: 15%;
+    }
+    .download-btn{
+        height: 15%;
+        margin-left: 5px;
+    }
+    .wide-btn{
+        width: 40%;
+    }
+    .share-btn{
+        width: 100%;
+        height: 100%;
+    }
+    .line-controls{
+        justify-content: space-around;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+    }
+    .line-text{
+        margin-right: auto;
+        margin-left: auto;
+    }
+    button{
+        width: 5.8vh;
+    }
+}
+@media (max-width: 650px){
+    .nav-bar{
+        visibility: hidden;
+    }
+    .menu-btn{
+        display: block;
+        max-width: 25px;
+        background-color: lightgreen;
+    }
+    .menu-btn.menu-open{
+        position: relative;
+        left: 10.2%;
+    }
+    body.menu-open .nav-bar {
+        transform: translateX(0);
+        box-shadow: -4px 0px 15px 0px #dcdcdc;
+        visibility: visible;
+        flex-direction: column;
+        position: relative;
+        top: 80%;
+        left: 20%;
+        background-color: cadetblue;
+    }
+    li{
+        border: 2px #dcdcdc solid;
+        text-align: center;
+        width: 100%;
+    }
+    body.menu-open .main-screen {
+        opacity: 1;
+        visibility: visible;
+    }
+    .main-screen {
+        visibility: hidden;
+        opacity: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgb(0 0 0 / 30%);
+        cursor: pointer;
+
+        transition: opacity .8s;
+    }
 }
